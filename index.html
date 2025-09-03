@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header>
+    <header class="hidden">
       <!-- Navbar -->
       <nav class="bg-sky-100">
         <div class="navbar shadow-sm">
@@ -116,21 +116,61 @@
           </p>
           <div class="space-y-2 mt-5">
             <input
-              class="px-2 btn-outline"
+              class="px-5 btn-outline rounded"
               placeholder="Enter Your Name"
               type="text"
             />
             <br />
-            <input class="px-2 btn-outline" type="password" />
+            <input
+              placeholder="Password"
+              class="px-5 btn-outline rounded"
+              type="password"
+            />
+            <br />
+            <a href="" class="btn btn-primary mt-2">Get Started</a>
           </div>
         </div>
         <div class="flex-1">
           <img src="./assets/hero-student.png" alt="" />
         </div>
       </section>
-      <!-- Login Section -->
     </header>
 
+    <section class="mt-20">
+      <h2 class="font-bold text-3xl md:text-5xl mb-5 text-center">
+        <span class="text-sky-500">Let's</span> Learn Vocabularies
+      </h2>
+      <div
+        id="level-container"
+        class="flex gap-5 flex-wrap justify-center"
+      ></div>
+    </section>
+
+    <section
+      id="word-container"
+      class="w-11/12 mx-auto bg-gray-100 my-10 p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+    >
+      <div class="text-center col-span-full space-y-2">
+        <p class="font-bangla text-xl">আপনি এখনো কোন Lesson Select করেন নি ।</p>
+        <p class="font-bangla font-bold md:text-3xl">
+          একটি Lesson Select করুন।
+        </p>
+      </div>
+    </section>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     <script src="./script.js"></script>
   </body>
 </html>
