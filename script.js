@@ -69,7 +69,9 @@ const displayLevelWords = (words) => {
           })" class="bg-sky-100 hover:bg-sky-200 rounded p-2">
             <i class="fa-solid fa-circle-info"></i>
           </button>
-          <button onclick="my_modal_5.showModal()" class="bg-sky-100 hover:bg-sky-200 rounded p-2">
+          <button onclick="pronounceWord('${
+            word.word
+          }')" class="bg-sky-100 hover:bg-sky-200 rounded p-2">
             <i class="fa-solid fa-volume-high"></i>
           </button>
         </div>
@@ -101,7 +103,7 @@ const displayWordDetails = (word) => {
       <p>
         ${createElement(word.synonyms)}
       </p>
-      <button class="btn btn-primary mt-5">Complete Learning</button>
+     
     </div>
   `;
   document.getElementById("my_modal_5").showModal();
@@ -123,6 +125,7 @@ const displayLessons = (lessons) => {
 loadLessons();
 
 document.getElementById("btn-search").addEventListener("click", () => {
+  removeActive();
   const input = document.getElementById("input-search");
   const searchValue = input.value.trim().toLowerCase();
   fetch("https://openapi.programming-hero.com/api/words/all")
@@ -135,3 +138,9 @@ document.getElementById("btn-search").addEventListener("click", () => {
       displayLevelWords(filterWords);
     });
 });
+
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // Japanese
+  window.speechSynthesis.speak(utterance);
+}
