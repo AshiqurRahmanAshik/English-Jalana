@@ -145,7 +145,42 @@
         class="flex gap-5 flex-wrap justify-center"
       ></div>
     </section>
-
+    <section id="spinner" class="flex items-center justify-center py-10 hidden">
+      <span class="loading loading-bars loading-lg"></span>
+    </section>
+    <section class="flex justify-center items-center py-10">
+      <div class="join">
+        <div>
+          <label class="input validator join-item">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </g>
+            </svg>
+            <input
+              id="input-search"
+              type="text"
+              placeholder="Search Vocabulary"
+              required
+            />
+          </label>
+        </div>
+        <button id="btn-search" class="btn btn-primary join-item">
+          Search
+        </button>
+      </div>
+    </section>
     <section
       id="word-container"
       class="w-11/12 mx-auto bg-gray-100 my-10 p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
