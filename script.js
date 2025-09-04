@@ -63,9 +63,33 @@ const displayLevelWords = (words) => {
     wordContainer.append(card);
   });
 };
-const loadWordDetail = (id) => {
+const loadWordDetail = async (id) => {
   const url = `https://openapi.programming-hero.com/api/word/${id}`;
-  console.log(url);
+  const res = await fetch(url);
+  const details = await res.json();
+  displayWordDetails(details.data);
+};
+const displayWordDetails = (word) => {
+  console.log(word);
+  const detailsBox = document.getElementById("details-container");
+  detailsBox.innerHTML = `
+                         <div class="space-y-2">
+      <h2 class="text-2xl font-bold">
+        ${word.word} (<i class="fa-solid fa-microphone-lines"></i>:বাংলা)
+      </h2>
+      <p class="font-bold">Meaning</p>
+      <p class="text-2xl"> ${word.meaning}</p>
+      <h2 class="font-bold">Example</h2>
+      <p> ${word.sentence}</p>
+      <p class="font-bold">সমার্থক শব্দ গুলো</p>
+      <p>
+        <span class="btn">${word.synonyms[0]}</span> <span class="btn">${word.synonyms[1]}</span>
+        <span class="btn">${word.synonyms[2]}</span>
+      </p>
+      <button class="btn btn-primary">Complete Learning</button>
+    </div>
+  `;
+  document.getElementById("my_modal_5").showModal();
 };
 const displayLessons = (lessons) => {
   const levelContainer = document.getElementById("level-container");
